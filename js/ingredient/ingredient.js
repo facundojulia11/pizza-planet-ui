@@ -1,12 +1,3 @@
-fetch("http://127.0.0.1:5000/ingredient")
-  .then((response) => response.json())
-  .then((ingredients) => {
-    let rows = ingredients.map((element) => createIngredientTemplate(element));
-    let table = $("#ingredients tbody");
-    table.append(rows);
-  });
+import { fetchProducts } from "../product/product.js";
 
-function createIngredientTemplate(ingredient) {
-  let template = $("#ingredient-item-template")[0].innerHTML;
-  return Mustache.render(template, ingredient);
-}
+fetchProducts("ingredient");
