@@ -43,8 +43,6 @@ function getOrderData() {
     beverages.push($(this).val());
   });
 
-  console.log("ingredients: ", ingredients);
-  console.log("beverages: ", beverages);
   return {
     client_name: $("input[name='name']").val(),
     client_dni: $("input[name='dni']").val(),

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -16,13 +13,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-
-    <title>L'ultima Cena Pizzeria! - Orders</title>
+    <title>Report - L'ultima Cena Pizzeria</title>
   </head>
 
   <body>
-    <!-- HEADER -->
-
     <header class="header-section container-fluid">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="/">
@@ -37,8 +31,6 @@
         </a>
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav">
-          <!-- LINKS -->
-
           <li class="nav-item active">
             <a class="nav-link" href="/">Build Your Pizza!</a>
           </li>
@@ -65,48 +57,40 @@
       </nav>
     </header>
 
-    <!-- TABLE -->
-
-    <div class="container">
+    <div class="container mt-5">
       <div class="jumbotron">
-        <div id="order-list">
-          <h2 class="text-center">Orders</h2>
-          <table id="orders" class="table bg-white table-bordered table-hover">
-            <thead class="thead-dark">
-              <tr class="d-flex">
-                <th class="col-3">Name</th>
-                <th class="col-2">DNI</th>
-                <th class="col-3">Address</th>
-                <th class="col-2 text-right">Total Sale</th>
-                <th class="col-2 text-center">Actions</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+        <h2 class="text-center">Report</h2>
+        <hr />
+
+        <div id="most-requested-ingredient">
+          <h4>Most Requested Ingredient</h4>
+          <p><strong>Ingredient:</strong> <span id="ingredient-name"></span></p>
+          <p>
+            <strong>Times Ordered:</strong> <span id="ingredient-count"></span>
+          </p>
+        </div>
+
+        <hr />
+
+        <div id="most-revenue-month">
+          <h4>Month with Most Revenue</h4>
+          <p><strong>Month:</strong> <span id="revenue-month"></span></p>
+          <p><strong>Year:</strong> <span id="revenue-year"></span></p>
+          <p>
+            <strong>Total Revenue:</strong> $<span id="revenue-total"></span>
+          </p>
+        </div>
+
+        <hr />
+
+        <div id="top-customers">
+          <h4>Top 3 Customers</h4>
+          <ol id="customer-list"></ol>
         </div>
       </div>
     </div>
 
-    <template id="order-item-template">
-      <tr class="d-flex">
-        <td class="col-3">{{client_name}}</td>
-        <td class="col-2">{{client_dni}}</td>
-        <td class="col-3">{{client_address}}</td>
-        <td class="col-2 text-right">${{total_price}}</td>
-        <td class="col-2">
-          <div class="text-center">
-            <a
-              class="btn btn-success btn-sm view-order"
-              href="/app/order/order-detail.html?_id={{_id}}"
-              >View</a
-            >
-          </div>
-        </td>
-      </tr>
-    </template>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- JavaScript -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -122,12 +106,6 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.js"
-      integrity="sha256-ILqMXUXPam8LdBwbq5W6r1m0NxeP8ydLFqrYN+bMCeI="
-      crossorigin="anonymous"
-    ></script>
-
-    <script type="module" src="/js/order/orders.js"></script>
+    <script type="module" src="/js/report/report.js"></script>
   </body>
 </html>
