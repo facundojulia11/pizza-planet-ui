@@ -1,14 +1,4 @@
-function postBeverage(beverage) {
-  fetch("http://127.0.0.1:5000/beverage/", {
-    method: "POST",
-    body: JSON.stringify(beverage),
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-    },
-  })
-    .then((res) => res.json())
-    .then((res) => showNotification());
-}
+import { postProducts } from "../product/product.js";
 
 /**
  * Get the form and submit it with fetch API
@@ -16,7 +6,7 @@ function postBeverage(beverage) {
 let beverageForm = $("#beverage-form");
 beverageForm.submit((event) => {
   let beverage = getBeverageData();
-  postBeverage(beverage);
+  postProducts("beverage", beverage);
 
   event.preventDefault();
   event.currentTarget.reset();
@@ -30,13 +20,4 @@ function getBeverageData() {
     name: $("input[name='name']").val(),
     price: $("input[name='price']").val(),
   };
-}
-
-/**
- * Shows a notification when the order is accepted
- */
-function showNotification() {
-  let beverageAlert = $("#beverage-alert");
-  beverageAlert.toggle();
-  setTimeout(() => beverageAlert.toggle(), 5000);
 }
